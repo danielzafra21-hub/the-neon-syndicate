@@ -1,0 +1,81 @@
+---
+import LayoutV2 from '../../layouts/LayoutV2.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ProductGrid from '../../components/ProductGrid.astro';
+import FloatingWhatsApp from '../../components/FloatingWhatsApp.astro';
+import catsData from '../../data/categorias.json';
+import prodsData from '../../data/productos.json';
+
+export async function getStaticPaths() {
+  const cats = catsData as any[];
+  return cats.map((cat: any) => ({
+    params: { slug: cat.slug },
+    props: { categoria: cat },
+  }));
+}
+
+const { categoria } = Astro.props as { categoria: any };
+const cats = catsData as any[];
+const prods = prodsData as any[];
+const productosCat = prods.filter((p: any) => p.categoriaId === categoria.id);
+
+const heroGradients: Record<string, string> = {
+  'militar-art': 'from-[#003300] via-[#006633] to-[#00e676]',
+  'icon-art': 'from-[#7c3aed] via-[#ff2d78] to-[#ff6d00]',
+  'set-ups': 'from-[#003366] via-[#0055aa] to-[#00d4ff]',
+};
+const heroGrad = heroGradients[categoria.id] || 'from-purple-600 via-pink-500 to-orange-400';
+
+const siteUrl = 'https://theneonsyndicate.com';
+const catUrl = `${siteUrl}/categoria/${categoria.slug}`;
+
+const catBreadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  '@id': `${catUrl}/#breadcrumb`,
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: siteUrl },
+    { '@type': 'ListItem', position: 2, name: categoria.nombre, item: catUrl },
+  ],
+};
+---
+
+<LayoutV2 title={`${categoria.nombre} | The Neon Syndicate — Wall Art de Neón LED`} description={categoria.descripcion} jsonLd={catBreadcrumbSchema}>
+  <Header />
+  <FloatingWhatsApp />
+
+  <main>
+    <section class="relative min-h-[50vh] flex items-center overflow-hidden pt-20">
+      <div class={`absolute inset-0 bg-gradient-to-br ${heroGrad}`} />
+      <div class="absolute inset-0 bg-black/20" />
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-[20%] right-[10%] w-64 h-64 rounded-full bg-white/5 blur-3xl pulse-glow" />
+        <div class="absolute bottom-[10%] left-[5%] w-48 h-48 rounded-full bg-white/5 blur-3xl pulse-glow" style="animation-delay: 1s" />
+      </div>
+
+      <div class="container-v2 relative z-10 py-16">
+        <div class="max-w-2xl reveal">
+          <span class="font-body text-xs font-bold uppercase tracking-[0.25em] text-white/60">Categoría</span>
+          <h1 class="font-heading text-4xl md:text-6xl font-extrabold text-white mt-3 leading-tight">
+            {categoria.nombre}
+          </h1>
+          <p class="font-body text-lg text-white/70 mt-4 leading-relaxed max-w-xl">
+            {categoria.descripcion}
+          </p>
+          <p class="font-body text-sm text-white/50 mt-4 font-medium">
+            {productosCat.length} {productosCat.length === 1 ? 'artículo' : 'artículos'}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-v2 reveal">
+      <div class="container-v2">
+        <ProductGrid products={productosCat} categories={cats} />
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</LayoutV2>
