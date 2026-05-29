@@ -1,0 +1,26 @@
+[
+  {
+    "id": "militar-art",
+    "slug": "militar-art",
+    "nombre": "Militar Art",
+    "descripcion": "Insignias de Élite Iluminadas. Elevamos la heráldica tradicional a la categoría de arte exclusivo. Piezas diseñadas para presidir despachos y espacios de mando. Tradición, honor y tecnología LED.",
+    "imagen": "/images/productos/militar-legion-novio-muerte-escudo.png",
+    "orden": 1
+  },
+  {
+    "id": "icon-art",
+    "slug": "icon-art",
+    "nombre": "Icon Art",
+    "descripcion": "Celebra la cultura pop con nuestra colección Icon Art. Personajes que han marcado generaciones, reimaginados a través de la luz: desde héroes legendarios y villanos icónicos hasta leyendas del cine, convertidos en piezas de Neón LED de alto impacto visual.",
+    "imagen": "/images/productos/icon-dragon-ball-super-sparking-zero.png",
+    "orden": 2
+  },
+  {
+    "id": "set-ups",
+    "slug": "set-ups",
+    "nombre": "Set Ups",
+    "descripcion": "Diseños personalizados y ediciones únicas. Funkos, arte a medida y creaciones exclusivas que no encontrarás en ningún otro sitio. Tu idea, hecha luz.",
+    "imagen": "/images/productos/funko-personalizado-frediel-edition.png",
+    "orden": 3
+  }
+]
