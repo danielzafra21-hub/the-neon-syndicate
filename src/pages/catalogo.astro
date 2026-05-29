@@ -1,0 +1,118 @@
+---
+import LayoutV2 from '../layouts/LayoutV2.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ProductCard from '../components/ProductCard.astro';
+import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
+import catsData from '../data/categorias.json';
+import prodsData from '../data/productos.json';
+
+const cats = catsData as any[];
+const prods = prodsData as any[];
+---
+
+<LayoutV2 title="Catálogo Completo | The Neon Syndicate — Wall Art de Neón LED" description="Explora nuestro catálogo completo de wall art neón LED. Militar Art, Icon Art y Set Ups. Envío gratis a España.">
+  <Header />
+  <FloatingWhatsApp />
+
+  <main class="pt-24 md:pt-28">
+    <section class="section-v2">
+      <div class="container-v2">
+        <div class="mb-10 reveal">
+          <h1 class="font-heading text-4xl md:text-6xl font-extrabold">
+            <span class="gradient-text">Catálogo</span>
+          </h1>
+          <p class="font-body text-[var(--color-text-secondary)] mt-3 leading-relaxed max-w-2xl">
+            Explora nuestra colección completa de Wall Art de Neón LED, donde la artesanía visual se encuentra con la tecnología más eficiente.
+          </p>
+          <p class="font-body text-sm text-[var(--color-text-muted)] mt-3 font-medium">
+            <span id="product-count">{prods.length}</span> artículos disponibles
+          </p>
+        </div>
+
+        <!-- Filters -->
+        <div class="filter-container flex flex-wrap gap-2 mb-10 reveal" style="transition-delay: 100ms">
+          <button
+            class="filter-btn active px-5 py-2.5 text-sm font-body font-bold rounded-full border-2 transition-all duration-200"
+            data-categoria="all"
+          >
+            Todos
+          </button>
+          {cats.map((cat: any) => {
+            const count = prods.filter((p: any) => p.categoriaId === cat.id).length;
+            return (
+              <button
+                class="filter-btn px-5 py-2.5 text-sm font-body font-bold rounded-full border-2 transition-all duration-200"
+                data-categoria={cat.id}
+              >
+                {cat.nombre} ({count})
+              </button>
+            );
+          })}
+        </div>
+
+        <!-- Grid -->
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {prods.map((prod: any) => {
+            const cat = cats.find((c: any) => c.id === prod.categoriaId);
+            return (
+              <div data-categoria={prod.categoriaId}>
+                <ProductCard product={prod} category={cat} />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</LayoutV2>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterContainer = document.querySelector('.filter-container');
+    const buttons = filterContainer?.querySelectorAll('.filter-btn');
+    const grid = document.getElementById('product-grid');
+    const cards = grid?.querySelectorAll('[data-categoria]');
+    const countEl = document.getElementById('product-count');
+    let activeBtn = null;
+
+    if (!buttons?.length) return;
+
+    const activeClasses = ['border-[var(--color-accent-pink)]', 'text-[var(--color-accent-pink)]', 'bg-[var(--color-accent-pink)]/10'];
+    const inactiveClasses = ['border-gray-200', 'text-[var(--color-text-secondary)]', 'bg-transparent'];
+
+    function activate(btn) {
+      buttons.forEach(b => {
+        b.classList.remove(...activeClasses);
+        b.classList.add(...inactiveClasses);
+      });
+      btn.classList.remove(...inactiveClasses);
+      btn.classList.add(...activeClasses);
+      activeBtn = btn;
+
+      const cat = btn.getAttribute('data-categoria');
+      let visible = 0;
+      cards.forEach(card => {
+        const match = cat === 'all' || card.getAttribute('data-categoria') === cat;
+        card.style.display = match ? '' : 'none';
+        if (match) visible++;
+      });
+      if (countEl) countEl.textContent = String(visible);
+    }
+
+    filterContainer.addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn || btn === activeBtn) return;
+      activate(btn);
+    });
+
+    activate(buttons[0]);
+  });
+
+  // Re-aplicar estado al volver con bfcache
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted) location.reload();
+  });
+</script>
