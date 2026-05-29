@@ -1,0 +1,227 @@
+[
+  {
+    "id": "militar-2-cia-legion",
+    "slug": "militar-2-cia-legion",
+    "nombre": "2ª CIA 'La Referencia' IV Bandera Legión",
+    "categoriaId": "militar-art",
+    "descripcion": "Siente el espíritu del Tercio y la fuerza de la IV Bandera en tu pared. Este cuadro de neón LED es un homenaje a la 2ª Compañía 'La Referencia', diseñado para quienes llevan el Credo Legionario en el ADN. Una pieza que fusiona la agresividad táctica con la vanguardia del diseño luminoso.",
+    "imagen": "/images/productos/militar-2-cia-referencia-legion-tercio-duque-alba.png",
+    "precios": { "40x50": 119.90, "55x75": 149.00, "70x95": 199.00 }
+  },
+  {
+    "id": "militar-3-cia-montana",
+    "slug": "militar-3-cia-montana",
+    "nombre": "3ª CIA Montaña Escudo",
+    "categoriaId": "militar-art",
+    "descripcion": "Escudo de la 3ª Compañía de Montaña. Espíritu de resistencia y superación en neón LED de alta definición.",
+    "imagen": "/images/productos/militar-3-cia-montana-escudo.png",
+    "precios": { "40x50": 119.90, "55x75": 149.00, "70x95": 199.00 }
+  },
+  {
+    "id": "militar-3-cia-pantera",
+    "slug": "militar-3-cia-pantera",
+    "nombre": "3ª CIA Pantera II/3 Regimiento Príncipe",
+    "categoriaId": "militar-art",
+    "descripcion": "Lleva a tu pared el emblema de la 'Pantera' y el legado del Regimiento Príncipe n° 3. Un tributo a la 3ª Compañía del Batallón II/3, diseñado para quienes han servido bajo el lema de 'Honor y Entrega'. Combina la heráldica tradicional de los fusiles cruzados con la fuerza visual del neón moderno.",
+    "imagen": "/images/productos/militar-3-cia-pantera-regimiento-principe-brilat.png",
+    "precios": { "40x40": 119.90, "50x50": 139.90, "60x60": 159.90, "70x70": 179.90 }
+  },
+  {
+    "id": "militar-comandancia-ceuta",
+    "slug": "militar-comandancia-ceuta",
+    "nombre": "Comandancia General de Ceuta",
+    "categoriaId": "militar-art",
+    "descripcion": "Honor, valor y siglos de historia de la Comandancia General de Ceuta en neón LED. Una pieza diseñada para quienes sirven con orgullo en una de las plazas con mayor tradición militar de España. La combinación perfecta entre heráldica y estética eléctrica contemporánea.",
+    "imagen": "/images/productos/militar-comandancia-ceuta.png",
+    "precios": { "40x50": 119.90, "55x75": 149.00, "70x95": 199.00 }
+  },
+  {
+    "id": "militar-escarapela-circular",
+    "slug": "militar-escarapela-circular",
+    "nombre": "Escarapela Circular España",
+    "categoriaId": "militar-art",
+    "descripcion": "Escarapela circular con los colores de España. Orgullo patrio en neón LED de alta calidad.",
+    "imagen": "/images/productos/militar-escarapela-circular-espana.png",
+    "precios": { "40x40": 119.90, "55x55": 149.00, "70x70": 199.00 }
+  },
+  {
+    "id": "militar-escarapela-guardia-civil",
+    "slug": "militar-escarapela-guardia-civil",
+    "nombre": "Escarapela Guardia Civil",
+    "categoriaId": "militar-art",
+    "descripcion": "Escarapela de la Guardia Civil. Homenaje a la Benemérita en neón LED premium.",
+    "imagen": "/images/productos/militar-escarapela-guardia-civil.png",
+    "precios": { "40x50": 119.90, "55x75": 149.00, "70x95": 199.00 }
+  },
+  {
+    "id": "militar-escarapela-madoc",
+    "slug": "militar-escarapela-madoc",
+    "nombre": "Escarapela MADOC",
+    "categoriaId": "militar-art",
+    "descripcion": "Escarapela del Mando de Adiestramiento y Doctrina (MADOC). Excelencia y preparación en neón LED.",
+    "imagen": "/images/productos/militar-escarapela-madoc.png",
+    "precios": { "40x50": 149.00, "55x75": 189.00, "70x95": 219.00 }
+  },
+  {
+    "id": "militar-escarapela-ume",
+    "slug": "militar-escarapela-ume",
+    "nombre": "Escarapela UME",
+    "categoriaId": "militar-art",
+    "descripcion": "Escarapela de la Unidad Militar de Emergencias (UME). Solidaridad y capacidad de respuesta en neón LED.",
+    "imagen": "/images/productos/militar-escarapela-ume.png",
+    "precios": { "40x50": 119.90, "55x75": 149.00, "70x95": 199.00 }
+  },
+  {
+    "id": "militar-legion-novio-muerte",
+    "slug": "militar-legion-novio-muerte",
+    "nombre": "Legión Novio de la Muerte Escudo",
+    "categoriaId": "militar-art",
+    "descripcion": "Escudo del Novio de la Muerte, el símbolo más icónico de la Legión Española, en neón LED.",
+    "imagen": "/images/productos/militar-legion-novio-muerte-escudo.png",
+    "precios": { "40x50": 119.90, "55x75": 149.00, "70x95": 199.00 }
+  },
+  {
+    "id": "militar-legionario-honor-muerte",
+    "slug": "militar-legionario-honor-muerte",
+    "nombre": "Legionario Honor Muerte Novio",
+    "categoriaId": "militar-art",
+    "descripcion": "El lema 'Honor y Muerte' del legionario. La esencia del espíritu legionario en neón LED.",
+    "imagen": "/images/productos/militar-legionario-honor-muerte-novio.png",
+    "precios": { "30x50": 99.90, "40x70": 129.00, "55x100": 195.00 }
+  },
+  {
+    "id": "militar-sereco-1-6",
+    "slug": "militar-sereco-1-6",
+    "nombre": "SERECO 1/6 Siempre Unida",
+    "categoriaId": "militar-art",
+    "descripcion": "Sección de Reconocimiento 1/6 del Regimiento Saboya. 'Siempre Unida' — el lema de esta unidad de élite en neón LED.",
+    "imagen": "/images/productos/militar-sereco-1-6-siempre-unida-regimiento-saboya.png",
+    "precios": { "40x40": 119.90, "55x55": 149.00, "70x70": 199.00 }
+  },
+  {
+    "id": "militar-sereco-67-nostra-sponte",
+    "slug": "militar-sereco-67-nostra-sponte",
+    "nombre": "SERECO 67 Nostra Sponte",
+    "categoriaId": "militar-art",
+    "descripcion": "SERECO 67 con el lema 'Nostra Sponte'. Autonomía, determinación y excelencia en neón LED.",
+    "imagen": "/images/productos/militar-sereco-67-nostra-sponte.png",
+    "precios": { "50x32": 119.90, "60x40": 139.90, "77x50": 159.90 }
+  },
+  {
+    "id": "icon-breaking-bad",
+    "slug": "icon-breaking-bad",
+    "nombre": "Breaking Bad Empire Business",
+    "categoriaId": "icon-art",
+    "descripcion": "El icónico logo Breaking Bad 'Empire Business' en neón LED. Para los verdaderos fans de Walter White.",
+    "imagen": "/images/productos/icon-breaking-bad-empire-business.png",
+    "precios": { "60x30": 99.90, "80x40": 129.00, "100x55": 195.00 }
+  },
+  {
+    "id": "icon-dragon-ball-sparking",
+    "slug": "icon-dragon-ball-sparking",
+    "nombre": "Dragon Ball Super Sparking Zero",
+    "categoriaId": "set-ups",
+    "descripcion": "Este cuadro de neón no es una simple lámina; es una pieza de Wall Art que combina la estética épica del anime con una atmósfera eléctrica. Rinde homenaje a Dragon Ball con un diseño que grita poder Super Saiyan en cada vatio. Perfecto para setups gamer de Sparking Zero.",
+    "imagen": "/images/productos/icon-dragon-ball-super-sparking-zero.png",
+    "precios": { "30x50": 99.90, "40x70": 129.90, "55x100": 199.90 }
+  },
+  {
+    "id": "icon-itachi-mangekyo",
+    "slug": "icon-itachi-mangekyo",
+    "nombre": "Itachi Uchiha Eternal Mangekyō 1/1",
+    "categoriaId": "set-ups",
+    "descripcion": "Pieza única 1 de 1 — la obra definitiva de Itachi Uchiha. Creada bajo la exclusividad absoluta: solo existe una unidad. Formato imponente de 57x100cm con iluminación Blood-Red que emite el rojo exacto del Sharingan. No es un cuadro, es el último que verás.",
+    "imagen": "/images/productos/icon-itachi-uchiha-eternal-mangekyo.png",
+    "precios": { "57x100": 197.50 }
+  },
+  {
+    "id": "icon-joker-urbano",
+    "slug": "icon-joker-urbano",
+    "nombre": "Joker Arte Urbano DC",
+    "categoriaId": "icon-art",
+    "descripcion": "Cuadro de neón LED del Joker en verde y violeta. Diseño detallado de la sonrisa con neón flex de alta precisión sobre acrílico transparente. El villano más carismático del cómic, iluminado.",
+    "imagen": "/images/productos/icon-joker-arte-urbano-dc.png",
+    "precios": { "30x40": 95.00, "40x60": 119.90, "60x80": 149.00 }
+  },
+  {
+    "id": "icon-perfect-cell",
+    "slug": "icon-perfect-cell",
+    "nombre": "Perfect Cell Dragon Ball Z",
+    "categoriaId": "set-ups",
+    "descripcion": "Perfect Cell de Dragon Ball Z en neón LED. La forma definitiva del villano perfecto, iluminada.",
+    "imagen": "/images/productos/icon-perfect-cell-dragon-ball-z.png",
+    "precios": { "30x40": 95.00, "40x60": 119.90, "60x80": 149.00 }
+  },
+  {
+    "id": "exclusive-bugs-bunny",
+    "slug": "exclusive-bugs-bunny",
+    "nombre": "Bugs Bunny Selfmade Exclusive",
+    "categoriaId": "icon-art",
+    "descripcion": "Bugs Bunny edición exclusiva 'Selfmade' en neón LED. Un clásico reinventado con actitud contemporánea.",
+    "imagen": "/images/productos/exclusive-bugs-bunny-selfmade.png",
+    "precios": { "60x30": 99.90, "80x40": 129.00, "100x55": 195.00 }
+  },
+  {
+    "id": "exclusive-goku-ssj4",
+    "slug": "exclusive-goku-ssj4",
+    "nombre": "Goku SSJ4 Dragon Ball GT Exclusive",
+    "categoriaId": "set-ups",
+    "descripcion": "Goku Super Saiyan 4 de Dragon Ball GT en neón LED. Edición exclusiva para coleccionistas.",
+    "imagen": "/images/productos/exclusive-goku-ssj4-dragon-ball-gt.png",
+    "precios": { "30x40": 95.00, "40x60": 119.90, "60x80": 149.00 }
+  },
+  {
+    "id": "dollar-gta6",
+    "slug": "dollar-gta6",
+    "nombre": "GTA6 Vice City Dollar Bill",
+    "categoriaId": "set-ups",
+    "descripcion": "Billete 100 Bucks GTA6 Vice City en neón LED. El sueño americano con estilo Vice City.",
+    "imagen": "/images/productos/dollar-gta6-vice-city-billete-100-bucks.png",
+    "precios": { "60x30": 99.90, "80x40": 129.00, "100x55": 195.00 }
+  },
+  {
+    "id": "animal-lion-king",
+    "slug": "animal-lion-king",
+    "nombre": "Lion King Corona Roja",
+    "categoriaId": "icon-art",
+    "descripcion": "El Rey León con su icónica corona roja en neón LED. Realeza y nostalgia en un diseño inolvidable.",
+    "imagen": "/images/productos/animal-lion-king-corona-roja.png",
+    "precios": { "30x40": 95.00, "60x40": 119.90, "80x60": 149.00 }
+  },
+  {
+    "id": "animal-pantera-rosa",
+    "slug": "animal-pantera-rosa",
+    "nombre": "Pantera Rosa Swag Streetwear",
+    "categoriaId": "icon-art",
+    "descripcion": "La Pantera Rosa con estilo streetwear en neón LED. Elegancia rosa y actitud urbana.",
+    "imagen": "/images/productos/animal-pantera-rosa-swag-streetwear.png",
+    "precios": { "30x40": 95.00, "40x60": 119.90, "60x80": 149.00 }
+  },
+  {
+    "id": "funko-frediel-edition",
+    "slug": "funko-frediel-edition",
+    "nombre": "Funko Personalizado Frediel Edition",
+    "categoriaId": "set-ups",
+    "descripcion": "Frediel: Cuadro de neón LED con figura estilo Funko personalizada. Líneas de neón flex de alta precisión para coleccionistas exigentes.",
+    "imagen": "/images/productos/funko-personalizado-frediel-edition.png",
+    "precios": { "30x40": 95.00, "40x60": 119.90, "60x80": 149.00 }
+  },
+  {
+    "id": "gallery-customer-design-1",
+    "slug": "gallery-customer-design-1",
+    "nombre": "Customer Design Personalizado",
+    "categoriaId": "set-ups",
+    "descripcion": "Diseño personalizado en neón LED. Tú imaginas, nosotros lo creamos. Cada pieza es única.",
+    "imagen": "/images/productos/gallery-customer-design-1.png",
+    "precios": { "30x40": 95.00, "40x60": 119.90, "60x80": 149.00 }
+  },
+  {
+    "id": "militar-legionario-contra-muerte",
+    "slug": "militar-legionario-contra-muerte",
+    "nombre": "Legionario contra la muerte personalizado",
+    "categoriaId": "militar-art",
+    "descripcion": "Diseño personalizado del Legionario contra la muerte en neón LED. Una pieza única que encarna el espíritu de la Legión Española, creada a medida para quienes llevan el honor y el sacrificio como estandarte. Personalizable con texto y detalles a tu elección.",
+    "imagen": "/images/productos/gallery-rafa-producto.jpg",
+    "precios": { "40x50": 119.90, "55x75": 149.00, "70x95": 199.00 }
+  }
+]
