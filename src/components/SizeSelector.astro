@@ -1,0 +1,70 @@
+---
+export interface Props {
+  sizes: string[];
+  prices: Record<string, number>;
+  productName: string;
+}
+
+const { sizes, prices, productName } = Astro.props;
+---
+
+<div class="mt-8">
+  <h3 class="font-body text-xs font-bold uppercase tracking-wider text-[var(--color-text-muted)] mb-3">
+    Selecciona tamaño
+  </h3>
+  <div id="size-selector" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+    {sizes.map((size) => {
+      const price = prices[size];
+      return (
+        <button
+          class="size-btn border-2 border-gray-200 bg-white px-4 py-3 text-center transition-all duration-200 hover:border-[var(--color-accent-pink)] hover:shadow-md rounded-xl"
+          data-size={size}
+          data-price={price}
+        >
+          <span class="block font-body text-sm font-bold text-[var(--color-text-primary)]">{size}</span>
+          <span class="block font-body text-xs font-medium text-[var(--color-accent-pink)] mt-0.5">{price.toFixed(2)} €</span>
+        </button>
+      );
+    })}
+  </div>
+</div>
+
+<script define:vars={{ productName }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.size-btn');
+    const priceDisplay = document.getElementById('price-display');
+    const whatsappBtn = document.getElementById('whatsapp-btn');
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        buttons.forEach((b) => {
+          b.classList.remove('border-[var(--color-accent-pink)]', 'bg-[var(--color-accent-pink)]/5');
+          b.classList.add('border-gray-200');
+        });
+        btn.classList.remove('border-gray-200');
+        btn.classList.add('border-[var(--color-accent-pink)]', 'bg-[var(--color-accent-pink)]/5');
+
+        const selectedSize = btn.getAttribute('data-size');
+        const selectedPrice = parseFloat(btn.getAttribute('data-price') || '0');
+
+        // Update price display
+        if (priceDisplay && selectedPrice) {
+          priceDisplay.innerHTML = `
+            <p class="font-heading text-4xl font-extrabold">
+              <span class="gradient-text-alt">${selectedPrice.toFixed(2)} €</span>
+            </p>
+            <p class="font-body text-sm text-[var(--color-text-muted)] mt-1">
+              Tamaño ${selectedSize}
+            </p>
+          `;
+        }
+
+        // Update WhatsApp link
+        if (whatsappBtn && selectedSize) {
+          const msg = encodeURIComponent(`Hola! Quiero pedir ${productName} tamaño ${selectedSize}`);
+          whatsappBtn.setAttribute('href', `https://wa.me/34722617372?text=${msg}`);
+        }
+      });
+    });
+  });
+</script>
