@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <defs>
+    <linearGradient id="a-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff6b9d" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#4ecdc4" />
+    </linearGradient>
+  </defs>
+  <!-- Curved arrow path -->
+  <path d="M0 30 Q40 10 80 30 Q120 50 160 30" fill="none" stroke="url(#a-grad)" stroke-width="3" stroke-linecap="round" />
+  <!-- Arrowhead -->
+  <polygon points="160,20 185,30 160,40" fill="url(#a-grad)" />
+  <!-- Small dots along path -->
+  <circle cx="40" cy="20" r="3" fill="#ff6b9d" opacity="0.6" />
+  <circle cx="80" cy="35" r="3" fill="#a855f7" opacity="0.6" />
+  <circle cx="120" cy="42" r="3" fill="#4ecdc4" opacity="0.6" />
+</svg>
