@@ -1,0 +1,65 @@
+---
+export interface Props {
+  product: any;
+  category?: any;
+  badge?: string;
+  badgeVariant?: 'hot' | 'bestseller' | 'exclusive' | 'new' | 'default';
+}
+
+const { product, category, badge, badgeVariant = 'default' } = Astro.props;
+
+const precios = Object.values(product.precios).filter((p): p is number => typeof p === 'number');
+const minPrecio = Math.min(...precios);
+
+const catBorders: Record<string, string> = {
+  'militar-art': 'hover:border-[var(--color-accent-green)] hover:shadow-[var(--color-glow-green)]',
+  'icon-art': 'hover:border-[var(--color-accent-pink)] hover:shadow-[var(--color-glow-pink)]',
+  'set-ups': 'hover:border-[var(--color-accent-blue)] hover:shadow-[var(--color-glow-blue)]',
+};
+
+const catLabels: Record<string, { color: string; label: string }> = {
+  'militar-art': { color: 'text-[var(--color-accent-green)]', label: 'Militar Art' },
+  'icon-art': { color: 'text-[var(--color-accent-pink)]', label: 'Icon Art' },
+  'set-ups': { color: 'text-[var(--color-accent-blue)]', label: 'Set Ups' },
+};
+
+const catInfo = catLabels[product.categoriaId] || { color: 'text-gray-500', label: product.categoriaId };
+const borderHover = catBorders[product.categoriaId] || 'hover:border-gray-300';
+---
+
+<a
+  href={`/producto/${product.slug}`}
+  class={`product-card group block bg-white rounded-2xl overflow-hidden border-2 border-gray-100 ${borderHover} transition-all duration-300`}
+>
+  <div class="aspect-square overflow-hidden bg-[var(--color-bg-elevated)] relative">
+    {badge && (
+      <span class="absolute top-3 left-3 z-10 inline-flex items-center gap-1 rounded-full bg-black/60 backdrop-blur-sm px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white font-body">
+        {badge}
+      </span>
+    )}
+    <img
+      src={product.imagen}
+      alt={product.nombre}
+      width="400"
+      height="400"
+      loading="lazy"
+      class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 image-fade-in"
+      onload="this.classList.add('loaded')"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+  </div>
+  <div class="p-3 sm:p-4 md:p-5 space-y-2">
+    <span class={`inline-block text-[10px] font-bold uppercase tracking-widest font-body ${catInfo.color}`}>
+      {catInfo.label}
+    </span>
+    <h3 class="font-heading text-base md:text-lg font-extrabold text-[var(--color-text-primary)] leading-tight group-hover:text-[var(--color-accent-pink)] transition-colors">
+      {product.nombre}
+    </h3>
+    <div class="flex items-center gap-2 pt-1">
+      <span class="font-heading text-xl font-extrabold text-[var(--color-accent-pink)]">
+        {minPrecio.toFixed(2)} €
+      </span>
+      <span class="text-xs text-[var(--color-text-muted)] font-body">desde</span>
+    </div>
+  </div>
+</a>
