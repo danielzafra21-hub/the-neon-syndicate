@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <defs>
+    <linearGradient id="l-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff6b9d" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#4ecdc4" />
+    </linearGradient>
+  </defs>
+  <!-- THE NEON -->
+  <text x="80" y="45" text-anchor="middle" fill="#1a1a2e" font-family="sans-serif" font-size="24" font-weight="800" letter-spacing="4">THE NEON</text>
+  <!-- SYNDICATE (gradient) -->
+  <text x="80" y="80" text-anchor="middle" fill="url(#l-grad)" font-family="sans-serif" font-size="32" font-weight="900" letter-spacing="6">SYNDICATE</text>
+  <!-- Decorative neon sparkle icon -->
+  <g transform="translate(280, 40)">
+    <path d="M0 -15 L2 -5 L12 -3 L2 -1 L0 9 L-2 -1 L-12 -3 L-2 -5 Z" fill="url(#l-grad)" />
+    <!-- glow circles -->
+    <circle cx="0" cy="0" r="20" fill="#ff6b9d" opacity="0.15" />
+    <circle cx="0" cy="0" r="12" fill="#a855f7" opacity="0.2" />
+  </g>
+  <!-- Small decorative line -->
+  <line x1="80" y1="95" x2="240" y2="95" stroke="url(#l-grad)" stroke-width="2" stroke-linecap="round" />
+</svg>
