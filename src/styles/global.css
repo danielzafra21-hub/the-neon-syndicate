@@ -1,0 +1,514 @@
+@import "tailwindcss";
+
+/* ─── Design System: Technically Stable Inspired ─── */
+
+@theme {
+  /* Backgrounds */
+  --color-bg: #f7f5f0;
+  --color-bg-surface: #ffffff;
+  --color-bg-elevated: #eeebe4;
+  --color-bg-alt: #1a1a2e;
+  --color-bg-dark: #0f0f1a;
+
+  /* Text */
+  --color-text-primary: #1a1a2e;
+  --color-text-secondary: #5a5a7a;
+  --color-text-muted: #9a9ab0;
+  --color-text-on-dark: #f7f5f0;
+
+  /* Accents - Technically Stable Style */
+  --color-accent-pink: #ff2d78;
+  --color-accent-blue: #00d4ff;
+  --color-accent-purple: #7c3aed;
+  --color-accent-yellow: #ffd600;
+  --color-accent-orange: #ff6d00;
+  --color-accent-green: #00e676;
+  --color-accent-red: #ff1744;
+  --color-accent-cyan: #00e5ff;
+
+  /* Glows */
+  --color-glow-pink: rgba(255, 45, 120, 0.45);
+  --color-glow-blue: rgba(0, 212, 255, 0.4);
+  --color-glow-purple: rgba(124, 58, 237, 0.4);
+  --color-glow-yellow: rgba(255, 214, 0, 0.4);
+  --color-glow-orange: rgba(255, 109, 0, 0.4);
+  --color-glow-green: rgba(0, 230, 118, 0.4);
+  --color-glow-cyan: rgba(0, 229, 255, 0.4);
+
+  /* Fonts */
+  --font-heading: "DM Sans", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-display: "DM Sans", sans-serif;
+
+  /* Spacing */
+  --spacing-section: clamp(4rem, 10vh, 8rem);
+}
+
+/* ─── Base Styles ─── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+}
+
+button, a {
+  touch-action: manipulation;
+}
+
+/* ─── Typography ─── */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+h1 { font-size: clamp(2.8rem, 7vw, 6rem); }
+h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); }
+h3 { font-size: clamp(1.5rem, 2.5vw, 2rem); }
+
+::selection {
+  background-color: var(--color-accent-pink);
+  color: white;
+}
+
+/* ─── Utility: Container ─── */
+
+.container-v2 {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 5vw, 4rem);
+  padding-right: clamp(1rem, 5vw, 4rem);
+}
+
+.section-v2 {
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+}
+
+/* ─── Scroll Reveal ─── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ─── Card Hover ─── */
+
+.product-card {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+/* ─── Button Styles ─── */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 9999px;
+  background: var(--color-accent-pink);
+  color: white;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 8px 30px var(--color-glow-pink);
+}
+
+.btn-primary:active {
+  transform: scale(0.95);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 9999px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  color: white;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  background: transparent;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+}
+
+/* ─── Image Loading ─── */
+
+.image-fade-in {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.image-fade-in.loaded {
+  opacity: 1;
+}
+
+/* ─── Gradient Text ─── */
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-accent-pink), var(--color-accent-purple), var(--color-accent-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-alt {
+  background: linear-gradient(135deg, var(--color-accent-yellow), var(--color-accent-orange), var(--color-accent-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Hero Slider ─── */
+
+.hero-slider {
+  position: relative;
+  overflow: hidden;
+  height: 100dvh;
+  min-height: 480px;
+  max-height: 900px;
+}
+
+@media (max-width: 640px) {
+  .hero-slider {
+    min-height: 100svh;
+    max-height: 650px;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-slider {
+    min-height: 420px;
+    max-height: 520px;
+  }
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: scale(1.05);
+}
+
+.hero-slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 10;
+}
+
+/* ─── Mobile Section Spacing ─── */
+
+@media (max-width: 640px) {
+  :root {
+    --spacing-section: clamp(2.5rem, 6vh, 4rem);
+  }
+  .container-v2 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* ─── Touch-friendly targets ─── */
+
+@media (max-width: 640px) {
+  .btn-primary,
+  .btn-ghost {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 0.8125rem;
+  }
+  .size-btn {
+    min-height: 3.5rem;
+  }
+  .slider-dot {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* ─── Animations ─── */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+.float-anim {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes coin-spin {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+.coin-spin {
+  animation: coin-spin 2s linear infinite;
+  transform-style: preserve-3d;
+}
+
+/* ─── Carousel ─── */
+
+.carousel-edge-mask {
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  padding: 0.5rem 0;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: carousel-scroll 50s linear infinite;
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+.carousel-slide {
+  flex-shrink: 0;
+  border-radius: 1rem;
+}
+
+@keyframes carousel-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track { animation: none; }
+  .reveal { transition: none; opacity: 1; transform: none; }
+  .hero-slide { transition: none; }
+}
+
+/* ─── Slider Dots ─── */
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.slider-dot.active {
+  background: white;
+  transform: scale(1.3);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+/* ─── Legal Pages ─── */
+
+.legal-page {
+  padding-top: 7rem;
+  padding-bottom: 5rem;
+}
+
+.legal-page article {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f0f0f0;
+}
+
+@media (min-width: 768px) {
+  .legal-page article {
+    padding: 3.5rem;
+  }
+}
+
+.legal-page h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 800;
+  color: #1a1a2e;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.legal-page .legal-date {
+  color: #9ca3af;
+  font-size: 0.8125rem;
+  margin-bottom: 2rem;
+  font-family: var(--font-body);
+}
+
+.legal-page .legal-section {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.legal-page .legal-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.legal-page h2 {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.legal-page p {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: #374151;
+  margin-bottom: 0.75rem;
+}
+
+.legal-page p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-page ul,
+.legal-page ol {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: #374151;
+  padding-left: 1.25rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.legal-page ul {
+  list-style-type: disc;
+}
+
+.legal-page ol {
+  list-style-type: decimal;
+}
+
+.legal-page li {
+  margin-bottom: 0.375rem;
+}
+
+.legal-page li:last-child {
+  margin-bottom: 0;
+}
+
+.legal-page strong {
+  font-weight: 600;
+  color: #111827;
+}
+
+.legal-page .legal-highlight {
+  background: #fef2f2;
+  border-left: 3px solid #ef4444;
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #374151;
+}
+
+.legal-page .legal-highlight strong {
+  color: #dc2626;
+}
+
+.legal-page .legal-toc {
+  background: #f9fafb;
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.legal-page .legal-toc p {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.legal-page .legal-toc a {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--color-accent-pink);
+  text-decoration: none;
+  padding: 0.25rem 0;
+  transition: color 0.2s;
+}
+
+.legal-page .legal-toc a:hover {
+  color: var(--color-accent-purple);
+}
+
+@media (max-width: 640px) {
+  .legal-page article {
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+}
