@@ -1,0 +1,82 @@
+---
+import LayoutV2 from '../layouts/LayoutV2.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HeroSlider from '../components/HeroSlider.astro';
+import CategoryGrid from '../components/CategoryGrid.astro';
+import CollectionSection from '../components/CollectionSection.astro';
+import TestimonialCarousel from '../components/TestimonialCarousel.astro';
+import NewsletterBanner from '../components/NewsletterBanner.astro';
+import CTASection from '../components/CTASection.astro';
+import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
+import catsData from '../data/categorias.json';
+import prodsData from '../data/productos.json';
+
+const cats = catsData as any[];
+const prods = prodsData as any[];
+const featuredProds = prods.slice(0, 6);
+const testimonios = [
+  { img: '/images/productos/testimonial-cliente-1.jpg', nombre: 'Cliente 1' },
+  { img: '/images/productos/testimonial-cliente-2.jpg', nombre: 'Cliente 2' },
+  { img: '/images/productos/testimonial-cliente-3.jpg', nombre: 'Cliente 3' },
+  { img: '/images/productos/testimonial-cliente-4.jpg', nombre: 'Cliente 4' },
+  { img: '/images/productos/testimonial-cliente-5.jpg', nombre: 'Cliente 5' },
+  { img: '/images/productos/testimonial-cliente-6.jpg', nombre: 'Cliente 6' },
+  { img: '/images/productos/testimonial-cliente-7.jpg', nombre: 'Cliente 7' },
+];
+---
+
+<LayoutV2>
+  <Header />
+  <FloatingWhatsApp />
+
+  <main>
+    <HeroSlider />
+
+    <!-- Marquee Strip -->
+    <div class="py-4 bg-[var(--color-bg-alt)] overflow-hidden border-y border-white/10">
+      <div class="flex whitespace-nowrap animate-[marquee_30s_linear_infinite] gap-12" style="animation: marquee 30s linear infinite;">
+        <span class="text-sm font-bold text-white/60 uppercase tracking-[0.3em] font-body">⚡ Envío Gratis a España</span>
+        <span class="text-sm font-bold text-[var(--color-accent-pink)] uppercase tracking-[0.3em] font-body">✦</span>
+        <span class="text-sm font-bold text-white/60 uppercase tracking-[0.3em] font-body">💎 Vinilo Premium</span>
+        <span class="text-sm font-bold text-[var(--color-accent-pink)] uppercase tracking-[0.3em] font-body">✦</span>
+        <span class="text-sm font-bold text-white/60 uppercase tracking-[0.3em] font-body">🔥 Diseños Exclusivos</span>
+        <span class="text-sm font-bold text-[var(--color-accent-pink)] uppercase tracking-[0.3em] font-body">✦</span>
+        <span class="text-sm font-bold text-white/60 uppercase tracking-[0.3em] font-body">🎨 Personalizado</span>
+        <span class="text-sm font-bold text-[var(--color-accent-pink)] uppercase tracking-[0.3em] font-body">✦</span>
+        <span class="text-sm font-bold text-white/60 uppercase tracking-[0.3em] font-body">⚡ Envío Gratis a España</span>
+        <span class="text-sm font-bold text-[var(--color-accent-pink)] uppercase tracking-[0.3em] font-body">✦</span>
+        <span class="text-sm font-bold text-white/60 uppercase tracking-[0.3em] font-body">💎 Vinilo Premium</span>
+        <span class="text-sm font-bold text-[var(--color-accent-pink)] uppercase tracking-[0.3em] font-body">✦</span>
+        <span class="text-sm font-bold text-white/60 uppercase tracking-[0.3em] font-body">🔥 Diseños Exclusivos</span>
+        <span class="text-sm font-bold text-[var(--color-accent-pink)] uppercase tracking-[0.3em] font-body">✦</span>
+        <span class="text-sm font-bold text-white/60 uppercase tracking-[0.3em] font-body">🎨 Personalizado</span>
+        <span class="text-sm font-bold text-[var(--color-accent-pink)] uppercase tracking-[0.3em] font-body">✦</span>
+      </div>
+    </div>
+
+    <style>
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+    </style>
+
+    <CategoryGrid categories={cats} products={prods} />
+
+    <CollectionSection
+      title="Productos Destacados"
+      description="Ediciones exclusivas diseñadas para coleccionistas reales. Piezas únicas y personalizables."
+      products={featuredProds}
+      categories={cats}
+    />
+
+    <TestimonialCarousel testimonials={testimonios} />
+
+    <NewsletterBanner />
+
+    <CTASection />
+  </main>
+
+  <Footer />
+</LayoutV2>
