@@ -1,0 +1,29 @@
+---
+export interface Props {
+  text: string;
+  variant?: 'hot' | 'bestseller' | 'exclusive' | 'new' | 'default';
+}
+
+const { text, variant = 'default' } = Astro.props;
+
+const emojiMap: Record<string, string> = {
+  hot: '🔥',
+  bestseller: '⭐',
+  exclusive: '💎',
+  new: '🆕',
+  default: '🏷️',
+};
+
+const colorMap: Record<string, string> = {
+  hot: 'bg-[var(--color-accent-red)]/10 text-[var(--color-accent-red)] border-[var(--color-accent-red)]/20',
+  bestseller: 'bg-[var(--color-accent-yellow)]/10 text-[var(--color-accent-yellow)] border-[var(--color-accent-yellow)]/20',
+  exclusive: 'bg-[var(--color-accent-purple)]/10 text-[var(--color-accent-purple)] border-[var(--color-accent-purple)]/20',
+  new: 'bg-[var(--color-accent-pink)]/10 text-[var(--color-accent-pink)] border-[var(--color-accent-pink)]/20',
+  default: 'bg-gray-100 text-gray-600 border-gray-200',
+};
+---
+
+<span class="inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-[10px] font-bold uppercase tracking-wider font-body {colorMap[variant] || colorMap.default}">
+  <span>{emojiMap[variant] || emojiMap.default}</span>
+  <span>{text}</span>
+</span>
