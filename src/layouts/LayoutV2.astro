@@ -1,0 +1,109 @@
+---
+import '../styles/global.css';
+import JsonLd from '../components/JsonLd.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const { title = 'The Neon Syndicate — Wall Art de Neón LED', description = 'Descubre wall art de neón LED personalizado con diseño vibrante. Militar Art, Icon Art y Set Ups. Envío gratis a España.', image = '/images/productos/logo-theneonsyndicate.png', jsonLd } = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://theneonsyndicate.com';
+const canonicalUrl = `${siteUrl}${Astro.url.pathname}`;
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${siteUrl}/#organization`,
+  name: 'The Neon Syndicate',
+  url: siteUrl,
+  logo: `${siteUrl}/images/productos/logo-theneonsyndicate.png`,
+  description: 'Wall art de neón LED personalizado. Diseños únicos en vinilo premium con envío gratis a España.',
+  telephone: '+34-722-61-73-72',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+34-722-61-73-72',
+    contactType: 'customer service',
+    availableLanguage: ['Spanish'],
+  },
+  sameAs: [
+    'https://www.instagram.com/theneonsyndicate_official/',
+    'https://www.tiktok.com/@theneonsyndicateofficial',
+  ],
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${siteUrl}/#website`,
+  url: siteUrl,
+  name: 'The Neon Syndicate',
+  description: 'Wall art de neón LED personalizado. Militar Art, Icon Art y Set Ups.',
+  publisher: { '@id': `${siteUrl}/#organization` },
+};
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#1a1a2e" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:site_name" content="The Neon Syndicate" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700&display=swap" rel="stylesheet" />
+
+    <title>{title}</title>
+
+    <JsonLd schema={orgSchema} />
+    <JsonLd schema={websiteSchema} />
+    {jsonLd && (Array.isArray(jsonLd)
+      ? jsonLd.map(s => <JsonLd schema={s} />)
+      : <JsonLd schema={jsonLd} />
+    )}
+
+    <link rel="icon" type="image/png" href="/images/productos/logo-theneonsyndicate.png" />
+    <link rel="apple-touch-icon" href="/images/productos/logo-theneonsyndicate.png" />
+  </head>
+  <body class="min-h-screen bg-bg text-text-primary antialiased">
+    <slot />
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const revealElements = document.querySelectorAll('.reveal');
+        if (revealElements.length > 0) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('visible');
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+          );
+          revealElements.forEach((el) => observer.observe(el));
+        }
+      });
+    </script>
+  </body>
+</html>
