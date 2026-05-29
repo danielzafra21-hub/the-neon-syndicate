@@ -1,0 +1,61 @@
+---
+import LayoutV2 from '../layouts/LayoutV2.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
+---
+
+<LayoutV2 title="404 — Página no encontrada | The Neon Syndicate" description="La página que buscas no existe. Vuelve al inicio de The Neon Syndicate.">
+  <Header />
+  <FloatingWhatsApp />
+
+  <main class="min-h-screen flex items-center justify-center pt-20">
+    <section class="section-v2 w-full">
+      <div class="container-v2">
+        <div class="max-w-2xl mx-auto text-center reveal">
+          <div class="text-[10rem] md:text-[14rem] font-heading font-extrabold leading-none mb-4">
+            <span class="gradient-text">404</span>
+          </div>
+
+          <div class="w-24 h-1 bg-gradient-to-r from-[var(--color-accent-pink)] to-[var(--color-accent-purple)] rounded-full mx-auto mb-8" />
+
+          <h1 class="font-heading text-3xl md:text-4xl font-extrabold text-[var(--color-text-primary)] mb-4">
+            Esta página no brilla
+          </h1>
+
+          <p class="font-body text-lg text-[var(--color-text-secondary)] mb-10 leading-relaxed max-w-md mx-auto">
+            Parece que el neón de esta página se ha fundido. La URL que buscas no existe o ha sido movida.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/" class="btn-primary text-base px-10">
+              Volver al Inicio
+            </a>
+            <a href="/catalogo" class="btn-ghost inline-flex items-center justify-center px-10 py-3.5 rounded-full border-2 border-[var(--color-text-secondary)] text-[var(--color-text-secondary)] font-body font-semibold text-sm uppercase tracking-wider hover:bg-[var(--color-text-primary)] hover:text-white hover:border-[var(--color-text-primary)] transition-all duration-200">
+              Ver Catálogo
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</LayoutV2>
+
+<style>
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 2rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 9999px;
+    cursor: pointer;
+    background: transparent;
+  }
+</style>
