@@ -1,0 +1,68 @@
+---
+export interface Props {
+  categories: any[];
+  products: any[];
+}
+
+const { categories, products } = Astro.props;
+
+const catStyles = [
+  { gradient: 'from-[var(--color-accent-green)]/90 to-[var(--color-accent-green)]/30', accent: 'border-[var(--color-accent-green)]', text: 'text-[var(--color-accent-green)]' },
+  { gradient: 'from-[var(--color-accent-pink)]/90 to-[var(--color-accent-pink)]/30', accent: 'border-[var(--color-accent-pink)]', text: 'text-[var(--color-accent-pink)]' },
+  { gradient: 'from-[var(--color-accent-blue)]/90 to-[var(--color-accent-blue)]/30', accent: 'border-[var(--color-accent-blue)]', text: 'text-[var(--color-accent-blue)]' },
+];
+---
+
+<section class="section-v2 reveal">
+  <div class="container-v2">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 md:mb-14">
+      <div class="max-w-xl">
+        <h2 class="font-heading text-3xl md:text-4xl font-extrabold text-[var(--color-text-primary)]">
+          Explora por <span class="gradient-text">Colecciones</span>
+        </h2>
+        <p class="font-body text-[var(--color-text-secondary)] mt-3 leading-relaxed">
+          Cada pieza está diseñada con precisión artesanal. Neón Flex de alta definición para curvas perfectas e iluminación uniforme.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+      {categories.map((cat: any, idx: number) => {
+        const count = products.filter((p: any) => p.categoriaId === cat.id).length;
+        const style = catStyles[idx % catStyles.length];
+        return (
+          <a
+            href={`/categoria/${cat.slug}`}
+            class="group relative block overflow-hidden rounded-3xl bg-white border-2 border-gray-100 hover:border-transparent transition-all duration-500 hover:shadow-2xl"
+          >
+            <div class="aspect-[4/3] overflow-hidden">
+              <img
+                src={cat.imagen}
+                alt={cat.nombre}
+                width="600"
+                height="450"
+                loading="lazy"
+                class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+              />
+              <div class={`absolute inset-0 bg-gradient-to-t ${style.gradient} opacity-80 group-hover:opacity-95 transition-opacity duration-500`} />
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 space-y-2">
+              <h3 class="font-heading text-2xl md:text-3xl font-extrabold text-white">
+                {cat.nombre}
+              </h3>
+              <p class="text-sm text-white/80 line-clamp-2 font-body">
+                {cat.descripcion}
+              </p>
+              <div class="flex items-center gap-2 pt-1">
+                <span class="text-xs font-bold text-white/60 uppercase tracking-wider font-body">
+                  {count} artículos
+                </span>
+                <span class="text-white group-hover:translate-x-1 transition-transform">→</span>
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</section>
