@@ -1,0 +1,43 @@
+---
+import ProductCard from './ProductCard.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  products: any[];
+  categories: any[];
+}
+
+const { title, description, products, categories } = Astro.props;
+---
+
+<section class="section-v2 bg-[var(--color-bg-elevated)]/50 reveal">
+  <div class="container-v2">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 md:mb-14">
+      <div class="max-w-xl">
+        <h2 class="font-heading text-3xl md:text-4xl font-extrabold text-[var(--color-text-primary)]">
+          {title}
+        </h2>
+        <p class="font-body text-[var(--color-text-secondary)] mt-3 leading-relaxed">
+          {description}
+        </p>
+      </div>
+      <a href="/catalogo" class="hidden md:inline-flex items-center gap-1 text-sm font-bold text-[var(--color-accent-pink)] hover:text-[var(--color-accent-purple)] transition-colors font-body uppercase tracking-wider">
+        Ver todos <span class="text-lg">→</span>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {products.map((prod: any) => {
+        const cat = categories.find((c: any) => c.id === prod.categoriaId);
+        return <ProductCard product={prod} category={cat} />;
+      })}
+    </div>
+
+    <div class="mt-10 text-center md:hidden">
+      <a href="/catalogo" class="inline-flex items-center px-8 py-3.5 rounded-full border-2 border-[var(--color-accent-pink)] text-[var(--color-accent-pink)] font-body font-bold text-sm uppercase tracking-wider hover:bg-[var(--color-accent-pink)] hover:text-white transition-all duration-300">
+        Ver todos los productos →
+      </a>
+    </div>
+  </div>
+</section>
