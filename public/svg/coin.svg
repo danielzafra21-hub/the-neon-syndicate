@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <radialGradient id="c-grad" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#fef3c7" />
+      <stop offset="40%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#d97706" />
+    </radialGradient>
+    <linearGradient id="c-edge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="50%" stop-color="#ff6b9d" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+  </defs>
+  <!-- Coin body -->
+  <circle cx="50" cy="50" r="45" fill="url(#c-grad)" stroke="url(#c-edge)" stroke-width="3" />
+  <!-- Inner ring -->
+  <circle cx="50" cy="50" r="35" fill="none" stroke="#d97706" stroke-width="1" opacity="0.5" />
+  <!-- $ symbol -->
+  <text x="50" y="62" text-anchor="middle" fill="#1a1a2e" font-family="sans-serif" font-size="36" font-weight="bold">$</text>
+  <!-- Sparkle -->
+  <circle cx="25" cy="25" r="3" fill="#ff6b9d" opacity="0.8" />
+  <circle cx="75" cy="30" r="2" fill="#4ecdc4" opacity="0.8" />
+  <circle cx="30" cy="75" r="2" fill="#a855f7" opacity="0.8" />
+</svg>
