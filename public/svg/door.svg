@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300">
+  <defs>
+    <linearGradient id="d-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" />
+      <stop offset="50%" stop-color="#ff6b9d" />
+      <stop offset="100%" stop-color="#fbbf24" />
+    </linearGradient>
+    <linearGradient id="d-door" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d1b69" />
+      <stop offset="100%" stop-color="#1a1a2e" />
+    </linearGradient>
+  </defs>
+  <!-- Door frame -->
+  <rect x="10" y="5" width="180" height="290" rx="90" ry="90" fill="none" stroke="url(#d-grad)" stroke-width="4" />
+  <!-- Door body -->
+  <rect x="20" y="25" width="160" height="265" rx="70" ry="70" fill="url(#d-door)" />
+  <!-- Door panels -->
+  <rect x="40" y="55" width="120" height="80" rx="8" fill="none" stroke="url(#d-grad)" stroke-width="1.5" opacity="0.5" />
+  <rect x="40" y="155" width="120" height="80" rx="8" fill="none" stroke="url(#d-grad)" stroke-width="1.5" opacity="0.5" />
+  <!-- Door handle -->
+  <circle cx="150" cy="150" r="8" fill="#fbbf24" />
+  <circle cx="150" cy="150" r="4" fill="#fff" opacity="0.5" />
+  <!-- Door window -->
+  <circle cx="100" cy="60" r="25" fill="none" stroke="url(#d-grad)" stroke-width="2" opacity="0.6" />
+  <circle cx="100" cy="60" r="25" fill="#ff6b9d" opacity="0.1" />
+  <!-- Text -->
+  <text x="100" y="270" text-anchor="middle" fill="url(#d-grad)" font-family="sans-serif" font-size="12" font-weight="bold" letter-spacing="2">OPEN</text>
+</svg>
