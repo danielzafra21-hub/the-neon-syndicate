@@ -1,0 +1,193 @@
+---
+const slides = [
+  {
+    id: 'neon',
+    subtitle: 'Wall art de neón LED que BRILLA',
+    badge: '✨ Nueva Colección 2026',
+    cta: { text: 'Explorar Catálogo', href: '/catalogo' },
+    secondaryCta: { text: 'WhatsApp', href: 'https://wa.me/34722617372' },
+    graphic: 'MILITAR•ICON•SETUPS',
+  },
+  {
+    id: 'militar',
+    subtitle: 'Insignias de élite iluminadas',
+    badge: '⚔️ Heráldica en Neón',
+    cta: { text: 'Ver Colección', href: '/categoria/militar-art' },
+    secondaryCta: { text: 'Catálogo', href: '/catalogo' },
+    graphic: 'HONOR•VALOR•TRADICIÓN',
+  },
+  {
+    id: 'icon',
+    subtitle: 'Cultura pop hecha luz',
+    badge: '🎭 Ediciones Exclusivas',
+    cta: { text: 'Ver Colección', href: '/categoria/icon-art' },
+    secondaryCta: { text: 'Catálogo', href: '/catalogo' },
+    graphic: 'MANGAS•SERIES•PELÍCULAS',
+  },
+  {
+    id: 'sets',
+    subtitle: 'Diseños personalizados y únicos',
+    badge: '🎨 Tu idea, hecha luz',
+    cta: { text: 'Ver Más', href: '/categoria/set-ups' },
+    secondaryCta: { text: 'Contacto', href: '/contacto' },
+    graphic: 'CREA•PERSONALIZA•ILUMINA',
+  },
+];
+---
+
+<div class="hero-slider" id="hero-slider">
+  {slides.map((slide, idx) => {
+    const isActive = idx === 0;
+    return (
+    <div class:list={['hero-slide', isActive && 'active']} data-slide={idx}>
+      <div class:list={['absolute inset-0 bg-gradient-to-br', `grad-${slide.id}`]} />
+
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-[10%] left-[5%] w-48 sm:w-72 h-48 sm:h-72 rounded-full bg-white/5 blur-2xl sm:blur-3xl pulse-glow" />
+        <div class="absolute bottom-[15%] right-[8%] w-56 sm:w-96 h-56 sm:h-96 rounded-full bg-white/5 blur-2xl sm:blur-3xl pulse-glow" style="animation-delay: 1s" />
+        <div class="hidden sm:block absolute top-[40%] right-[20%] w-48 h-48 rounded-full bg-white/5 blur-3xl pulse-glow" style="animation-delay: 2s" />
+      </div>
+
+      <div class="relative z-10 h-full flex items-center">
+        <div class="container-v2 w-full">
+          <div class="max-w-3xl">
+            <span class="inline-block font-body text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-white/80 mb-4 md:mb-6 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full reveal">
+              {slide.badge}
+            </span>
+
+            <h1 class="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[0.9] tracking-tight reveal" style="transition-delay: 100ms">
+              {slide.id === 'neon' && <>THE NEON <span class={`gradient-text-${slide.id}`}>SYNDICATE</span></>}
+              {slide.id === 'militar' && <>MILITAR <span class={`gradient-text-${slide.id}`}>ART</span></>}
+              {slide.id === 'icon' && <>ICON <span class={`gradient-text-${slide.id}`}>ART</span></>}
+              {slide.id === 'sets' && <>SET <span class={`gradient-text-${slide.id}`}>UPS</span></>}
+            </h1>
+
+            <p class="font-body text-lg md:text-xl text-white/80 mt-4 md:mt-6 max-w-xl leading-relaxed reveal" style="transition-delay: 200ms">
+              {slide.subtitle}
+            </p>
+
+            <div class="hidden md:block font-mono text-xs tracking-[0.4em] text-white/30 mt-6 reveal" style="transition-delay: 250ms">
+              {slide.graphic}
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 md:mt-8 reveal" style="transition-delay: 300ms">
+              <a href={slide.cta.href} class="btn-primary text-sm sm:text-base px-6 sm:px-8">{slide.cta.text}</a>
+              <a
+                href={slide.secondaryCta.href}
+                target={slide.secondaryCta.href.startsWith('http') ? '_blank' : undefined}
+                rel={slide.secondaryCta.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                class="btn-ghost text-sm sm:text-base px-6 sm:px-8"
+              >{slide.secondaryCta.text}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    );
+  })}
+
+  <div class="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
+    {slides.map((_, idx) => (
+      <button class:list={['slider-dot', idx === 0 && 'active']} data-slide-to={idx} aria-label={`Slide ${idx + 1}`} />
+    ))}
+  </div>
+
+  <div class="absolute bottom-0 left-0 right-0 z-20 h-1 bg-white/10">
+    <div id="slider-progress" class="h-full bg-white/60 transition-all duration-[5000ms] ease-linear" style="width: 0%" />
+  </div>
+</div>
+
+<style>
+  .grad-neon { background: linear-gradient(135deg, #ff2d78, #7c3aed, #00d4ff); }
+  .grad-militar { background: linear-gradient(135deg, #003300, #006633, #00e676); }
+  .grad-icon { background: linear-gradient(135deg, #7c3aed, #ff2d78, #ff6d00); }
+  .grad-sets { background: linear-gradient(135deg, #003366, #0055aa, #00d4ff); }
+
+  .gradient-text-neon {
+    background: linear-gradient(to right, #ffd600, #ff2d78, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gradient-text-militar {
+    background: linear-gradient(to right, #00e676, #00ff88, #00e676);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gradient-text-icon {
+    background: linear-gradient(to right, #ff2d78, #ffd600, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gradient-text-sets {
+    background: linear-gradient(to right, #00d4ff, #00e5ff, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+</style>
+
+<script>
+  (function() {
+    const slider = document.getElementById('hero-slider');
+    if (!slider) return;
+
+    const slides = slider.querySelectorAll('.hero-slide');
+    const dots = slider.querySelectorAll('.slider-dot');
+    const progress = document.getElementById('slider-progress');
+    let current = 0;
+    const total = slides.length;
+    let interval;
+
+    function goTo(index) {
+      slides.forEach(s => s.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      slides[index].classList.add('active');
+      dots[index].classList.add('active');
+      current = index;
+      if (progress) {
+        progress.style.transition = 'none';
+        progress.style.width = '0%';
+        progress.offsetHeight;
+        progress.style.transition = 'width 5s linear';
+        progress.style.width = '100%';
+      }
+    }
+
+    function next() {
+      goTo((current + 1) % total);
+    }
+
+    function startAuto() {
+      goTo(0);
+      interval = setInterval(next, 5500);
+    }
+
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        clearInterval(interval);
+        goTo(idx);
+        setTimeout(startAuto, 6000);
+      });
+    });
+
+    let touchStartX = 0;
+    slider.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      clearInterval(interval);
+    }, { passive: true });
+
+    slider.addEventListener('touchend', (e) => {
+      const diff = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(diff) > 50) {
+        if (diff < 0) next();
+        else goTo((current - 1 + total) % total);
+      }
+      setTimeout(startAuto, 6000);
+    }, { passive: true });
+
+    startAuto();
+  })();
+</script>
