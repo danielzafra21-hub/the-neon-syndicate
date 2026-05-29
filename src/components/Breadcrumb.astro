@@ -1,0 +1,25 @@
+---
+export interface Props {
+  items: Array<{ label: string; href: string }>;
+}
+
+const { items } = Astro.props;
+---
+
+<nav class="flex items-center gap-2 py-4 font-body text-sm">
+  {items.map((item, i) => (
+    <>
+      {i > 0 && <span class="text-[var(--color-text-muted)] text-xs mx-1">/</span>}
+      <a
+        href={item.href}
+        class={`transition-colors duration-200 font-medium ${
+          i === items.length - 1
+            ? 'text-[var(--color-accent-pink)]'
+            : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)]'
+        }`}
+      >
+        {item.label}
+      </a>
+    </>
+  ))}
+</nav>
