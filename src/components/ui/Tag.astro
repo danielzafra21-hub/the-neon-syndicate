@@ -1,0 +1,21 @@
+---
+export interface Props {
+  text: string;
+  color?: 'pink' | 'blue' | 'purple' | 'yellow' | 'green' | 'orange';
+}
+
+const { text, color = 'pink' } = Astro.props;
+
+const colorMap: Record<string, string> = {
+  pink: 'bg-[var(--color-accent-pink)]/10 text-[var(--color-accent-pink)]',
+  blue: 'bg-[var(--color-accent-blue)]/10 text-[var(--color-accent-blue)]',
+  purple: 'bg-[var(--color-accent-purple)]/10 text-[var(--color-accent-purple)]',
+  yellow: 'bg-[var(--color-accent-yellow)]/10 text-[var(--color-accent-yellow)]',
+  green: 'bg-[var(--color-accent-green)]/10 text-[var(--color-accent-green)]',
+  orange: 'bg-[var(--color-accent-orange)]/10 text-[var(--color-accent-orange)]',
+};
+---
+
+<span class="inline-flex items-center rounded-lg px-3 py-1.5 text-xs font-bold font-body uppercase tracking-wider {colorMap[color] || colorMap.pink}">
+  {text}
+</span>
