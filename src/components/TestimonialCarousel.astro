@@ -1,0 +1,37 @@
+---
+export interface Props {
+  testimonials: Array<{ img: string; nombre: string }>;
+}
+
+const { testimonials } = Astro.props;
+---
+
+<section class="section-v2 reveal pb-0 overflow-hidden">
+  <div class="container-v2 mb-10 md:mb-14">
+    <div class="max-w-xl">
+      <h2 class="font-heading text-3xl md:text-4xl font-extrabold text-[var(--color-text-primary)]">
+        Galería de <span class="gradient-text">Clientes</span>
+      </h2>
+      <p class="font-body text-[var(--color-text-secondary)] mt-3 leading-relaxed">
+        Esto es lo que nuestros clientes han creado con nosotros. Cada pieza es única.
+      </p>
+    </div>
+  </div>
+
+  <div class="carousel-edge-mask">
+    <div class="carousel-track">
+      {[...testimonials, ...testimonials].map((t) => (
+        <div class="carousel-slide w-[240px] md:w-[300px] aspect-square overflow-hidden rounded-2xl bg-white border-2 border-gray-100 shadow-md hover:shadow-xl transition-shadow">
+          <img
+            src={t.img}
+            alt={`Trabajo de ${t.nombre}`}
+            width="300"
+            height="300"
+            loading="lazy"
+            class="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
