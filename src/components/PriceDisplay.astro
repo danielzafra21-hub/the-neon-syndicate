@@ -1,0 +1,18 @@
+---
+export interface Props {
+  minPrice: number;
+  maxPrice: number;
+  productName: string;
+}
+
+const { minPrice, maxPrice, productName } = Astro.props;
+---
+
+<div id="price-display" class="mt-6">
+  <p class="font-heading text-4xl font-extrabold">
+    <span class="gradient-text-alt">{minPrice.toFixed(2)} €</span>
+  </p>
+  <p class="font-body text-sm text-[var(--color-text-muted)] mt-1">
+    {minPrice.toFixed(2)} € – {maxPrice.toFixed(2)} € según tamaño
+  </p>
+</div>
